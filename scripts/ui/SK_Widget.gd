@@ -69,14 +69,9 @@ func __set_parent__(p):
 ################################################################################
 
 func _init(x:int, y:int):
+	connect("redraw_event", core, "_on_redraw_event")
 	name = "SK_Widget"
 	set_pos(x, y)
-
-
-func input(event:InputEvent):
-#	print("SK_Widget.input(): not implemented yet!")
-#	assert(false)
-	pass
 
 func draw():
 	print("SK_Widget.draw(): not implemented yet!")

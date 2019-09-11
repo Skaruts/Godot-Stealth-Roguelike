@@ -11,7 +11,7 @@ func _init():
 
 
 func _init_cellmap():
-	var tex = preload("res://data/fonts/cp437_20x20.png")
+#	var tex = preload("res://data/fonts/cp437_20x20.png")
 	var shader = preload("res://resources/cell_shader.shader")
 
 	for j in range(GH):
@@ -22,7 +22,7 @@ func _init_cellmap():
 			_cellmap[j].append(cell)
 
 			cell.centered = false
-			cell.texture = tex
+			cell.texture = am.get_font()
 
 			cell.hframes = 16
 			cell.vframes = 16
@@ -34,10 +34,15 @@ func _init_cellmap():
 			mat.set_shader_param( "bg", Data.DEF_BG )
 			cell.material = mat
 
-			cell.position = Vector2(i, j) * core.TS
+			cell.position = Vector2(i, j) * am.get_font_size()
 			cell.visible = false
 
 
+func switch_font():
+	for j in range(GH):
+		for i in range(GW):
+			_cellmap[j][i].texture = am.get_font()
+			_cellmap[j][i].position = Vector2(i, j) * am.get_font_size()
 
 
 func _ascii(ch):

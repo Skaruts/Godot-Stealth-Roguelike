@@ -19,11 +19,11 @@ var redrawing := false
 #		call_deferred("draw")
 #		redrawing = true
 
-#func draw():
-#	redrawing = false
-#	for w in _widgets:
-#		if w.visible:
-#			w.draw()
+func draw():
+	redrawing = false
+	for w in _widgets:
+		if w.visible:
+			w.draw()
 
 
 
@@ -34,10 +34,10 @@ var redrawing := false
 ################################################################################
 func add(w:SK_Widget, parent:Node):
 	if not _widgets.has(w):
+#		w.connect("redraw_event", core, "_on_redraw_event")
 		w.id = _next_wid()
 		parent.add_child(w)
-#		_widgets.append(w)
-#		w.connect("redraw_event", self, "_on_draw_event")
+		_widgets.append(w)
 
 func del(w:SK_Widget, parent:Node):
 	if _widgets.has(w):
@@ -95,3 +95,8 @@ func new_v_separator(parent, x:int, y:int, h:int, style_override=null) -> SK_VSe
 	var s = SK_VSeparator.new( x, y, h, style_override )
 	add(s, parent)
 	return s
+
+func new_progress_bar(parent, x:int, y:int, w:int, h:int, val:int, max_val:int, dir:String, style_override=null) -> SK_ProgressBar:
+	var pb = SK_ProgressBar.new( x, y, w, h, val, max_val, dir, style_override )
+	add(pb, parent)
+	return pb

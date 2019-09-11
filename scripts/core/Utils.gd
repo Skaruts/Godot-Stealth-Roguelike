@@ -26,6 +26,15 @@ static func rand(from, to=null):
 
 
 
+static func wrap(num, low, hi):
+#	if num < low: return hi
+#	if num > hi: return low
+#	return num
+	return hi if num < low else low if num > hi else num
+
+
+
+
 
 
 static func mandist(p1, p2):

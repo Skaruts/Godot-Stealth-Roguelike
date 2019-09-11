@@ -17,50 +17,76 @@ var TS := Vector2(TW, TH)
 var theme = Data.def_theme
 
 
+enum Frame { INPUT, UPDATE, DRAW }
+var current_frame:int = Frame.INPUT
+
 func _ready():
 #	settings.load_cfg()
-
 	seed(Data.def_settings.gen_seed.hash())
 	OS.low_processor_usage_mode = true
 	OS.set_window_title(window_title)
-	__set_screen_size()
+
+	_set_tile_size()
+	_set_screen_size()
+
+
+func _process(delta: float) -> void:
+	match current_frame:
+		Frame.DRAW:
+			ui.draw()
+			current_frame = Frame.UPDATE
+		Frame.UPDATE:
+			pass
+			current_frame = Frame.INPUT
+		Frame.INPUT:
+			set_process(false)
+
+func _on_redraw_event():
+	set_process(true)
+	current_frame = Frame.DRAW
 
 func _input(event:InputEvent):
-	if event.is_action_pressed("quit"):
-		exit()
-
 	if event is InputEventMouseMotion:
 		mouse_pos = get_viewport().get_mouse_position() / TS
 
-	if event.is_action_pressed("key_shift"):    shift_mod = true
+	elif event.is_action_pressed("quit"):
+		exit()
+
+	elif event.is_action_pressed("key_shift"):  shift_mod = true
 	elif event.is_action_released("key_shift"): shift_mod = false
 
-	if event.is_action_pressed("key_ctrl"):	    ctrl_mod = true
+	elif event.is_action_pressed("key_ctrl"):	ctrl_mod = true
 	elif event.is_action_released("key_ctrl"):  ctrl_mod = false
 
-	if event.is_action_pressed("key_alt"):      alt_mod = true
+	elif event.is_action_pressed("key_alt"):    alt_mod = true
 	elif event.is_action_released("key_alt"):   alt_mod = false
 
+	elif event.is_action_pressed("next_font"):  _switch_font( 1)
+	elif event.is_action_pressed("prev_font"):  _switch_font(-1)
 
-# in case stuff needs to be done here before quitting
+
+# shorthand for 'get_tree().quit()'; also in case anything has to be done before quitting
 func exit():
 	# any other stuff here
 	get_tree().quit()
 
-func __set_screen_size():
+func _set_screen_size():
 	OS.window_size = Vector2(Data.GW, Data.GH) * TS
 	OS.window_position = OS.get_screen_size()/2 - OS.window_size/2 - Vector2(0, 50)
 
 
+func _set_tile_size():
+	TS = am.get_font_size()
+	TW = TS.x
+	TH = TS.y
 
 
-#func __switch_font(dir):
-#	if textures.switch_font(dir):
-#		__set_dimensions()
-#		# 0 default | 1 reverse | 2 real Time | 4 unique
-#		get_tree().call_group(2, "SPRITES", "switch_font")
-#		get_tree().call_group(2, "UI_ELEMENTS", "reposition")
-#		__set_screen_size()
+func _switch_font(dir):
+	am.switch_font(dir)
+	_set_tile_size()
+	_set_screen_size()
+	terminal.switch_font()
+
 
 
 
