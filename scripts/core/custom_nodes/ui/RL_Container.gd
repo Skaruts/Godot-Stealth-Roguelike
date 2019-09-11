@@ -1,10 +1,10 @@
-extends SK_Widget
-class_name SK_Container
+extends RL_Control
+class_name RL_Container
 
 var _widgets := []
 
 func _init(x:int, y:int, w:int, h:int).(x, y):
-	name = "Container"
+	name = "RL_Container"
 
 	set_size(w, h)
 

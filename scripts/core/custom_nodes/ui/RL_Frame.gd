@@ -1,12 +1,12 @@
-extends SK_Widget
-class_name SK_Frame
+extends RL_Control
+class_name RL_Frame
 
 var _cellmap := []
 var _fgs := []
 var _bgs := []
 
 func _init(x:int, y:int, w:int, h:int, style_override=null).(x, y):
-	name = "SK_Frame"
+	name = "RL_Frame"
 
 	set_min_size(9, 9)
 	set_size(w, h)

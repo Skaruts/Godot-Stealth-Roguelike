@@ -1,11 +1,11 @@
-extends SK_Container
-class_name SK_ButtonList
+extends RL_Container
+class_name RL_ButtonList
 
 var buttons := []
 var sorting_children := false
 
 func _init(x:int, y:int, style_override=null).(x, y, 1, 1):
-	name = "SK_ButtonList"
+	name = "RL_ButtonList"
 
 	if style_override:  style = style_override
 	else:               style = core.theme.button
@@ -15,11 +15,11 @@ func _init(x:int, y:int, style_override=null).(x, y, 1, 1):
 
 
 
-func add_button(text:String, sig:String="", caller=null, callback:String="", args:=[]) -> SK_TextButton:
+func add_button(text:String, sig:String="", caller=null, callback:String="", args:=[]) -> RL_TextButton:
 	var num_buttons:int = buttons.size()
 
 	var b = ui.new_text_button(self, 0, num_buttons, text, style)
-#	var b = SK_TextButton.new(0, num_buttons, text, style)
+#	var b = RL_TextButton.new(0, num_buttons, text, style)
 	add(b)
 	buttons.append(b)
 	if sig:

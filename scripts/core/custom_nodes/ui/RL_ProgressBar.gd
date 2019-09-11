@@ -1,5 +1,5 @@
-extends SK_Range
-class_name SK_ProgressBar
+extends RL_Range
+class_name RL_ProgressBar
 
 signal emptied
 signal filled
@@ -12,7 +12,7 @@ var facing:int = Directions.LEFT setget __set_facing__
 
 
 func _init(x:int, y:int, w:int, h:int, val:int, max_val:int, dir='right', style_override=null).(x, y, val, max_val):
-	name = "SK_ProgressBar"
+	name = "RL_ProgressBar"
 
 	self.facing = dir
 

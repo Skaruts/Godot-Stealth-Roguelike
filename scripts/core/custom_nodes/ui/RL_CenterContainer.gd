@@ -1,9 +1,9 @@
-extends SK_Container
-class_name SK_CenterContainer
+extends RL_Container
+class_name RL_CenterContainer
 
 
 func _init(x:int, y:int, w:int, h:int).(x, y, w, h):
-	name = "CenterContainer"
+	name = "RL_CenterContainer"
 
 
 func add(w):

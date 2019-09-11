@@ -1,9 +1,9 @@
-extends SK_Separator
-class_name SK_HSeparator
+extends RL_Separator
+class_name RL_HSeparator
 
 
 func _init(x:int, y:int, l:int, style_override=null).(x, y, l, style_override):
-	name = "SK_HSeparator"
+	name = "RL_HSeparator"
 	set_size(l, 1)
 
 func draw():

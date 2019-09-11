@@ -1,5 +1,5 @@
-extends SK_Widget
-class_name SK_Range
+extends RL_Control
+class_name RL_Range
 
 signal changed
 signal value_changed
@@ -8,7 +8,7 @@ var max_value:int = 100   setget __set_max_val__
 var value:int = 100       setget __set_val__
 
 func _init(x:int, y:int, val:int, max_val:int).(x, y):
-	name = "SK_Range"
+	name = "RL_Range"
 	max_value = max_val
 	value = clamp(val, 0, max_value)
 

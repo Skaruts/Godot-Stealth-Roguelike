@@ -1,5 +1,5 @@
-extends SK_Widget
-class_name SK_BaseButton
+extends RL_Control
+class_name RL_BaseButton
 
 var tool_tip := ""
 
@@ -15,7 +15,7 @@ var is_toggle := false setget __is_toggle__
 
 
 func _init(x:int, y:int).(x, y):
-	name = "SK_BaseButton"
+	name = "RL_BaseButton"
 
 
 func _input(event:InputEvent):

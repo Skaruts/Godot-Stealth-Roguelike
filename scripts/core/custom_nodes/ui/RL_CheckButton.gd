@@ -1,11 +1,11 @@
-extends SK_BaseButton
-class_name SK_CheckButton
+extends RL_BaseButton
+class_name RL_CheckButton
 
 var _icon:int = Charcodes.CHECK_BTN_UNCHECKED
 var _checked := false
 
 func _init(x:int, y:int, style_override=null).(x, y):
-	name = "SK_CheckButton"
+	name = "RL_CheckButton"
 
 	is_toggle = true
 
@@ -30,7 +30,7 @@ func _on_toggle():
 
 
 func __is_toggle__(enable:bool):
-	print("(SK_CheckButton) Error - SK_CheckButton can't be set to non-toggle.")
+	print("(RL_CheckButton) Error - RL_CheckButton can't be set to non-toggle.")
 	assert(false)
 
 

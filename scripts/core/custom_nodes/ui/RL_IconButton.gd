@@ -1,10 +1,10 @@
-extends SK_BaseButton
-class_name SK_IconButton
+extends RL_BaseButton
+class_name RL_IconButton
 
 var icon := 0
 
 func _init(x:int, y:int, i:int, style_override=null).(x, y):
-	name = "SK_IconButton"
+	name = "RL_IconButton"
 
 	if style_override:  style = style_override
 	else:               style = core.theme.button

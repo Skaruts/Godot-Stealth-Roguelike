@@ -1,12 +1,12 @@
-extends SK_Widget
-class_name SK_Separator
+extends RL_Control
+class_name RL_Separator
 
 var _fgs := []
 var colors := []
 var length := 1
 
 func _init(x:int, y:int, l:int, style_override=null).(x, y):
-	name = "SK_Separator"
+	name = "RL_Separator"
 	length = l
 	set_min_size(1, 1)
 

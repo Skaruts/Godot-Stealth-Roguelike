@@ -1,12 +1,12 @@
-extends SK_Widget
-class_name SK_Label
+extends RL_Control
+class_name RL_Label
 
 
 var text := "" setget __set_text__
 var length := 0
 
 func _init(x:int, y:int, t:String, style_override=null).(x, y):
-	name = "SK_Label"
+	name = "RL_Label"
 
 	if style_override:  style = style_override
 	else:               style = core.theme.label
