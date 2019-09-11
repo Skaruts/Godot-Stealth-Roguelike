@@ -88,6 +88,11 @@ const def_theme := {
 		bg = Color.black,
 		thickness = 0,
 	},
+
+	progress_bar = {
+		fg = Colors.GREEN3,
+		bg = Color.black,
+	},
 }
 
 

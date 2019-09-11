@@ -3,6 +3,8 @@ class_name Charcodes
 
 const CHECK_BTN_CHECKED := 254
 const CHECK_BTN_UNCHECKED := 255
+const PROGRESS_BAR := 254
+
 
 # char/glyphs values
 # -------------------------
