@@ -1,0 +1,30 @@
+[debug]
+debug					=false
+
+[display]
+tile_dark_mult  		= 0.4	# multiplier for darkening tile colors (used in tile.set_foreground())
+map_width				= 48
+map_height				= 48
+use_fow					= true		# Fog of war
+show_all_map			= false		# Show hidden wall tiles
+ui_flip_h				= false
+ui_flip_v				= false
+draw_ui_corners			= true		# draw corners or use corner caps
+
+[keyboard]
+key_repeat				= true      # if false, you move once per key press
+key_cooldown			= 0.10
+key_first_cooldown		= 0.250
+
+[input]
+toggle_ui				= [ key(Tab)			]
+switch_textures_up		= [ key(PageUp)			]
+switch_textures_down	= [ key(PageDown)		]
+k_rebuild_map			= [ key(Space)			]
+k_shake					= [ key(F)				]
+toggle_debug			= [ key(F1)				]
+k_left					= [ key(A), key(Left)	]
+k_right					= [ key(D), key(Right)	]
+k_up					= [ key(W), key(Up)		]
+k_down					= [ key(S), key(Down)	]
+fast_quit				= [ key(Q), key(Escape)	]

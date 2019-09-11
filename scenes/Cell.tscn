@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+
+[node name="Sprite" type="Sprite" index="0"]
+
+material = SubResource( 1 )
+centered = false
+vframes = 16
+hframes = 16
+_sections_unfolded = [ "Animation", "Material", "Offset" ]
+
+
