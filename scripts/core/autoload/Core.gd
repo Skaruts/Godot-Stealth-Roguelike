@@ -17,8 +17,8 @@ var TS := Vector2(TW, TH)
 var theme = Data.def_theme
 
 
-enum Frame { INPUT, UPDATE, DRAW }
-var current_frame:int = Frame.INPUT
+enum State { INPUT, UPDATE, DRAW }
+var _current_state:int = State.INPUT
 
 func _ready():
 #	settings.load_cfg()
@@ -31,19 +31,19 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	match current_frame:
-		Frame.DRAW:
-			ui.draw()
-			current_frame = Frame.UPDATE
-		Frame.UPDATE:
+	match _current_state:
+		State.UPDATE:
 			pass
-			current_frame = Frame.INPUT
-		Frame.INPUT:
+			_current_state = State.DRAW
+		State.DRAW:
+			ui.draw()
+			_current_state = State.INPUT
+		State.INPUT:
 			set_process(false)
 
 func _on_redraw_event():
 	set_process(true)
-	current_frame = Frame.DRAW
+	_current_state = State.DRAW
 
 func _input(event:InputEvent):
 	if event is InputEventMouseMotion:
