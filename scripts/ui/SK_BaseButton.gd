@@ -59,7 +59,6 @@ func _on_mouse_exit():
 
 
 func _on_pressed():
-
 	_is_down = true
 	set_colors(style.fg_pressed, style.bg_pressed)
 	if is_toggle:  emit_signal("toggled")
@@ -67,7 +66,6 @@ func _on_pressed():
 
 
 func _on_released():
-	print("Button input")
 	_is_down = false
 	set_colors(style.fg_hovered, style.bg_hovered)
 	if is_toggle:  emit_signal("toggled")
