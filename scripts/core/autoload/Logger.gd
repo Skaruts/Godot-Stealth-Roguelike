@@ -20,7 +20,7 @@ func log_line(text:String):
 
 
 
-
+var LOG_FILE # <- just so the editor stops complaining that it's missing
 func load_logs():
 	logs = Utils.get_file_lines(LOG_FILE)
 
