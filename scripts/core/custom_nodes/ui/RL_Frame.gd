@@ -47,23 +47,27 @@ func _set_cell(x, y, glyph, fg, bg):
 func _build_cellmap():
 	_init_cellmap()
 
+	var lines
+	if style.thickness == 0: lines = Charcodes.thin_lines
+	else:                    lines = Charcodes.thick_lines
+
 	for j in range(h):
 		for i in range(w):
 			# corners
-			if   i == 0 and j == 0:			_set_cell(i, j, Charcodes.TL, style.fg_0, style.bg)
-			elif i == 0 and j == h-1:		_set_cell(i, j, Charcodes.BL, style.fg_0, style.bg)
-			elif i == w-1 and j == 0:		_set_cell(i, j, Charcodes.TR, style.fg_0, style.bg)
-			elif i == w-1 and j == h-1:		_set_cell(i, j, Charcodes.BR, style.fg_0, style.bg)
+			if   i == 0 and j == 0:			_set_cell(i, j, lines.TL, style.fg_0, style.bg)
+			elif i == 0 and j == h-1:		_set_cell(i, j, lines.BL, style.fg_0, style.bg)
+			elif i == w-1 and j == 0:		_set_cell(i, j, lines.TR, style.fg_0, style.bg)
+			elif i == w-1 and j == h-1:		_set_cell(i, j, lines.BR, style.fg_0, style.bg)
 
 			# h lines
-			elif i in [1, w-2]  and j in [0, h-1]:	_set_cell(i, j, Charcodes.HL, style.fg_1, style.bg)
-			elif i in [2, w-3]  and j in [0, h-1]:	_set_cell(i, j, Charcodes.HL, style.fg_2, style.bg)
-			elif i in [3, w-4]  and j in [0, h-1]:	_set_cell(i, j, Charcodes.HL, style.fg_3, style.bg)
+			elif i in [1, w-2]  and j in [0, h-1]:	_set_cell(i, j, lines.HL, style.fg_1, style.bg)
+			elif i in [2, w-3]  and j in [0, h-1]:	_set_cell(i, j, lines.HL, style.fg_2, style.bg)
+			elif i in [3, w-4]  and j in [0, h-1]:	_set_cell(i, j, lines.HL, style.fg_3, style.bg)
 
 			# v lines
-			elif i in [0, w-1]  and j in [1, h-2]:	_set_cell(i, j, Charcodes.VL, style.fg_1, style.bg)
-			elif i in [0, w-1]  and j in [2, h-3]:	_set_cell(i, j, Charcodes.VL, style.fg_2, style.bg)
-			elif i in [0, w-1]  and j in [3, h-4]:	_set_cell(i, j, Charcodes.VL, style.fg_3, style.bg)
+			elif i in [0, w-1]  and j in [1, h-2]:	_set_cell(i, j, lines.VL, style.fg_1, style.bg)
+			elif i in [0, w-1]  and j in [2, h-3]:	_set_cell(i, j, lines.VL, style.fg_2, style.bg)
+			elif i in [0, w-1]  and j in [3, h-4]:	_set_cell(i, j, lines.VL, style.fg_3, style.bg)
 
 			else: _set_cell(i, j, 0, null, null)
 
