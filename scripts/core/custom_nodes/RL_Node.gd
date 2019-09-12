@@ -72,6 +72,11 @@ func add_child(w:Node, legible_unique_name:=false):
 	.add_child(w, legible_unique_name)
 	w.parent = self
 
+func remove_child(c):
+	.remove_child(c)
+	c.parent = null
+
+
 
 func set_visible(enable:bool):
 	visible = enable

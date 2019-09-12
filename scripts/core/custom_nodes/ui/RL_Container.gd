@@ -1,46 +1,53 @@
 extends RL_Control
 class_name RL_Container
 
-var _widgets := []
+signal sort_children
+
+var _controls := []
 
 func _init(x:int, y:int, w:int, h:int).(x, y):
 	name = "RL_Container"
-
 	set_size(w, h)
 
 func draw():
 	if visible:
-		for w in _widgets:
-			if w.visible:
-				w.draw()
+		for c in _controls:
+			if c.visible:
+				c.draw()
 
 func input(event:InputEvent):
 	if visible and active:
-		for w in _widgets:
-			if w.visible and w.active:
-				w.input(event)
+		for c in _controls:
+			if c.visible and c.active:
+				c.input(event)
 
-func add(w):
-	if not _widgets.has(w):
-		_widgets.append(w)
-#		add_child(w)
+func add_child(c, legible_unique_name:=false):
+	if not _controls.has(c):
+		.add_child(c)
+		_controls.append(c)
+		c.parent_is_container = true
 
 
-func del(w):
-	if _widgets.has(w):
-		_widgets.erase(w)
-		w.queue_free()
+func remove_child(c):
+	if _controls.has(c):
+		.remove_child(c)
+		_controls.erase(c)
+		c.parent_is_container = false
 
 
 #func set_visible(enable:bool, emit:=true):
 #	.set_visible(enable, false)
-#	for w in _widgets:
-#		w.set_visible(enable, false)
+#	for c in _controls:
+#		c.set_visible(enable, false)
 
 #	emit_signal("visibility_changed")
 
 
 func set_active(enable:bool):
 	.set_active(enable)
-	for w in _widgets:
-		w.active = enable
+	for c in _controls:
+		c.active = enable
+
+
+func _sort_children():
+	pass

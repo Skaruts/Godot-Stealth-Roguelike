@@ -7,17 +7,20 @@ signal mouse_exit
 signal resized
 signal colors_changed
 
+var expand_h := false
+var expand_v := false
 
+var parent_is_container := false
 
 #var visible:= true setget __set_visible__
 var active := true setget __set_active__
 
-var w := 1
-var h := 1
+var w := 0
+var h := 0
 var size := Vector2(1, 1) setget __set_size__
 
-var min_w := 1
-var min_h := 1
+var min_w := 0
+var min_h := 0
 
 var style:Dictionary
 
@@ -61,7 +64,14 @@ func _init(x:int, y:int).(x, y):
 #    interface
 
 ################################################################################
+
+func set_pos(x:int, y:int, emit:=true):
+	if parent_is_container: return
+	.set_pos(x, y, emit)
+
 func set_size(new_w:int, new_h:int, emit:=true):
+	if parent_is_container: return
+
 	w = max(new_w, min_w)
 	h = max(new_h, min_h)
 	size = Vector2(w, h)

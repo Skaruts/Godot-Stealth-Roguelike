@@ -80,10 +80,7 @@ func new_frame(parent, x:int, y:int, w:int, h:int, style_override=null) -> RL_Fr
 	add(f, parent)
 	return f
 
-func new_center_container(parent, x:int, y:int, w:int, h:int) -> RL_CenterContainer:
-	var cc = RL_CenterContainer.new( x, y, w, h )
-	add(cc, parent)
-	return cc
+
 
 
 func new_h_separator(parent, x:int, y:int, w:int, style_override=null) -> RL_HSeparator:
@@ -100,3 +97,18 @@ func new_progress_bar(parent, x:int, y:int, w:int, h:int, val:int, max_val:int, 
 	var pb = RL_ProgressBar.new( x, y, w, h, val, max_val, dir, style_override )
 	add(pb, parent)
 	return pb
+
+func new_center_container(parent, x:int, y:int, w:int, h:int) -> RL_CenterContainer:
+	var cc = RL_CenterContainer.new( x, y, w, h )
+	add(cc, parent)
+	return cc
+
+func new_hbox_container(parent, x:int, y:int, w:int, h:int) -> RL_HBoxContainer:
+	var hb = RL_HBoxContainer.new( x, y, w, h )
+	add(hb, parent)
+	return hb
+
+func new_vbox_container(parent, x:int, y:int, w:int, h:int) -> RL_VBoxContainer:
+	var vb = RL_VBoxContainer.new( x, y, w, h )
+	add(vb, parent)
+	return vb

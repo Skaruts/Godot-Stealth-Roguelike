@@ -20,7 +20,7 @@ func add_button(text:String, sig:String="", caller=null, callback:String="", arg
 
 	var b = ui.new_text_button(self, 0, num_buttons, text, style)
 #	var b = RL_TextButton.new(0, num_buttons, text, style)
-	add(b)
+	add_child(b)
 	buttons.append(b)
 	if sig:
 		b.connect(sig, caller, callback, args)

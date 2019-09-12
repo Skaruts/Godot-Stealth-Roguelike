@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/core/custom_nodes/ui/RL_BaseButton.gd"
 }, {
+"base": "RL_Container",
+"class": "RL_BoxContainer",
+"language": "GDScript",
+"path": "res://scripts/core/custom_nodes/ui/RL_BoxContainer.gd"
+}, {
 "base": "RL_BaseButton",
 "class": "RL_Button",
 "language": "GDScript",
@@ -73,6 +78,11 @@ _global_script_classes=[ {
 "class": "RL_Frame",
 "language": "GDScript",
 "path": "res://scripts/core/custom_nodes/ui/RL_Frame.gd"
+}, {
+"base": "RL_BoxContainer",
+"class": "RL_HBoxContainer",
+"language": "GDScript",
+"path": "res://scripts/core/custom_nodes/ui/RL_HBoxContainer.gd"
 }, {
 "base": "RL_Separator",
 "class": "RL_HSeparator",
@@ -114,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/core/custom_nodes/ui/RL_TextButton.gd"
 }, {
+"base": "RL_BoxContainer",
+"class": "RL_VBoxContainer",
+"language": "GDScript",
+"path": "res://scripts/core/custom_nodes/ui/RL_VBoxContainer.gd"
+}, {
 "base": "RL_Separator",
 "class": "RL_VSeparator",
 "language": "GDScript",
@@ -131,6 +146,7 @@ _global_script_class_icons={
 "Logger": "",
 "REXLoader": "",
 "RL_BaseButton": "",
+"RL_BoxContainer": "",
 "RL_Button": "",
 "RL_ButtonList": "",
 "RL_CenterContainer": "",
@@ -138,6 +154,7 @@ _global_script_class_icons={
 "RL_Container": "",
 "RL_Control": "",
 "RL_Frame": "",
+"RL_HBoxContainer": "",
 "RL_HSeparator": "",
 "RL_IconButton": "",
 "RL_Label": "",
@@ -146,6 +163,7 @@ _global_script_class_icons={
 "RL_Range": "",
 "RL_Separator": "",
 "RL_TextButton": "",
+"RL_VBoxContainer": "",
 "RL_VSeparator": "",
 "Utils": ""
 }
