@@ -25,6 +25,7 @@ func _ready():
 	seed(Data.def_settings.gen_seed.hash())
 	OS.low_processor_usage_mode = true
 	OS.set_window_title(window_title)
+	VisualServer.set_default_clear_color( Color.black )
 
 	_set_tile_size()
 	_set_screen_size()
@@ -36,6 +37,7 @@ func _process(delta: float) -> void:
 			pass
 			_current_state = State.DRAW
 		State.DRAW:
+			terminal.clear()
 			ui.draw()
 			_current_state = State.INPUT
 		State.INPUT:
